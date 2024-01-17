@@ -216,7 +216,7 @@ Builder.load_string("""
                 
                 Button:
                     text: "New 4 Numbers & Answer"   
-                    font_size: '20sp'
+                    font_size: '15sp'
                     size_hint_y: None
                     height: 200
                     padding: 10, 10
@@ -235,14 +235,14 @@ Builder.load_string("""
                 height: self.minimum_height
                 
                 Label:
-                    font_size: '40sp'
+                    font_size: '20sp'
                     size_hint_y: None
                     height: 100
                     padding: 10, 10
                     text: "Solve For:"
                     
                 Label:
-                    font_size: '40sp'
+                    font_size: '20sp'
                     size_hint_y: None
                     height: 100
                     padding: 10, 10
@@ -274,7 +274,7 @@ Builder.load_string("""
                 multiline: False
                 font_size: '35sp'
                 size_hint_y: None
-                height: 100
+                height: 150
                 padding: 10  
                 keyboard: False
                 
@@ -570,18 +570,18 @@ class FourNumberTheory(Screen):
         super(FourNumberTheory, self).__init__(**kwargs)
         
         answer = str(random.randrange(0, 100))
-        self.ids.answer.add_widget(Label(text= answer ,font_size = '40sp', size_hint_y= None, height=100))
+        self.ids.answer.add_widget(Label(text= answer ,font_size = '20sp', size_hint_y= None, height=100))
         
         number1 = str(random.randrange(0, 9))
         number2 = str(random.randrange(0, 9))
         number3 = str(random.randrange(0, 9))
         number4 = str(random.randrange(0, 9))
-        self.ids.four_numbers.add_widget(Label(text= number1 + " , " + number2 + " , " + number3 + " , " + number4 ,font_size = '40sp', size_hint_y= None, height=100))
+        self.ids.four_numbers.add_widget(Label(text= number1 + " , " + number2 + " , " + number3 + " , " + number4 ,font_size = '20sp', size_hint_y= None, height=100))
     
     def steps(self,entry):
         
         print("FourNumberTheory = ",entry)
-        self.ids.evaluated_answer.add_widget(Label(text= entry ,font_size = '40sp', size_hint_y= None, height=100))
+        self.ids.evaluated_answer.add_widget(Label(text= entry ,font_size = '20sp', size_hint_y= None, height=100))
         
         #Factorials function
         if entry.count("!") >= 1:
@@ -664,10 +664,10 @@ class FourNumberTheory(Screen):
         try:
             evaled_answer = str(eval(str(entry.replace("^","**"))))
             print("evaluated_answer : ",evaled_answer)
-            self.ids.evaluated_answer.add_widget(Label(text= evaled_answer ,font_size = '40sp', size_hint_y= None, height=100))
+            self.ids.evaluated_answer.add_widget(Label(text= evaled_answer ,font_size = '20sp', size_hint_y= None, height=100))
     
         except Exception:
-            self.ids.evaluated_answer.add_widget(Label(text= "Invalid Input" ,font_size = '40sp', size_hint_y= None, height=100))
+            self.ids.evaluated_answer.add_widget(Label(text= "Invalid Input" ,font_size = '20sp', size_hint_y= None, height=100))
 
 
 
@@ -678,13 +678,13 @@ class FourNumberTheory(Screen):
         self.ids.four_numbers.clear_widgets()
         
         answer = str(random.randrange(0, 100))
-        self.ids.answer.add_widget(Label(text= answer ,font_size = '40sp', size_hint_y= None, height=100))
+        self.ids.answer.add_widget(Label(text= answer ,font_size = '20sp', size_hint_y= None, height=100))
         
         number1 = str(random.randrange(0, 9))
         number2 = str(random.randrange(0, 9))
         number3 = str(random.randrange(0, 9))
         number4 = str(random.randrange(0, 9))
-        self.ids.four_numbers.add_widget(Label(text= number1 + " , " + number2 + " , " + number3 + " , " + number4 ,font_size = '40sp', size_hint_y= None, height=100))
+        self.ids.four_numbers.add_widget(Label(text= number1 + " , " + number2 + " , " + number3 + " , " + number4 ,font_size = '20sp', size_hint_y= None, height=100))
     
         
                 

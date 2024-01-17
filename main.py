@@ -224,6 +224,7 @@ Builder.load_string("""
                     on_release:
                         evaluated_answer.clear_widgets()
                         FourNumberTheory.newnumbers()
+                        input.text = ""
                         
             BoxLayout:
                 cols: 2
@@ -267,6 +268,12 @@ Builder.load_string("""
                     size_hint: 1, None
                     height: self.minimum_height             
             
+            GridLayout:
+                id: evaluated_answer
+                cols: 1
+                size_hint: 1, None
+                height: self.minimum_height  
+            
             TextInput:
                 id: input
                 text: input.text
@@ -277,12 +284,6 @@ Builder.load_string("""
                 height: 150
                 padding: 10  
                 keyboard: False
-                
-            GridLayout:
-                id: evaluated_answer
-                cols: 1
-                size_hint: 1, None
-                height: self.minimum_height   
                 
             BoxLayout:
                 cols: 2
@@ -404,26 +405,6 @@ Builder.load_string("""
                 height: self.minimum_height 
                 
                 Button:
-                    text: "+"   
-                    font_size: '30sp'
-                    size_hint_y: None
-                    background_color: 1, 1, 0, 1
-                    height: 200
-                    padding: 10, 10
-                    on_release:
-                        input.text = input.text + "+"
-                        
-                Button:
-                    text: "-"   
-                    font_size: '30sp'
-                    size_hint_y: None
-                    background_color: 1, 1, 0, 1
-                    height: 200
-                    padding: 10, 10
-                    on_release:
-                        input.text = input.text + "-"
-                        
-                Button:
                     text: "*"   
                     font_size: '30sp'
                     size_hint_y: None
@@ -442,6 +423,26 @@ Builder.load_string("""
                     padding: 10, 10
                     on_release:
                         input.text = input.text + "/"
+                        
+                Button:
+                    text: "+"   
+                    font_size: '30sp'
+                    size_hint_y: None
+                    background_color: 1, 1, 0, 1
+                    height: 200
+                    padding: 10, 10
+                    on_release:
+                        input.text = input.text + "+"
+                        
+                Button:
+                    text: "-"   
+                    font_size: '30sp'
+                    size_hint_y: None
+                    background_color: 1, 1, 0, 1
+                    height: 200
+                    padding: 10, 10
+                    on_release:
+                        input.text = input.text + "-"
                 
             BoxLayout:
                 cols: 2

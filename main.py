@@ -33,7 +33,7 @@ Builder.load_string("""
             font_size: '20sp'
             background_color: 0, 0 , 0 , 1
             size_hint_y: None
-            height:400
+            height:300
             text: "4 Number Theory Game"
             on_release:
                 app.root.current = "Menu"
@@ -43,7 +43,7 @@ Builder.load_string("""
             font_size: '20sp'
             background_color: 0, 0 , 0 , 1
             size_hint_y: None
-            height:400
+            height:300
             text: "A Junice Industries Product"
             on_release:
                 app.root.current = "Menu"
@@ -53,7 +53,7 @@ Builder.load_string("""
             font_size: '20sp'
             background_color: 0, 0 , 0 , 1
             size_hint_y: None
-            height:400
+            height:300
             text: "Tap anywhere to Continue"
             on_release:
                 app.root.current = "Menu"
@@ -175,7 +175,6 @@ Builder.load_string("""
                 on_release:
                     FourNumberTheory.newnumbers()
                     evaluated_answer.clear_widgets()
-                    entry_widget.clear_widgets()
                     equal.clear_widgets()
                     input.text = ""
                     
@@ -187,7 +186,6 @@ Builder.load_string("""
                 on_release:
                     FourNumberTheory.nextAnswer()
                     evaluated_answer.clear_widgets()
-                    entry_widget.clear_widgets()
                     equal.clear_widgets()
                     input.text = ""
                     
@@ -214,11 +212,6 @@ Builder.load_string("""
                 cols: 0
         
         BoxLayout:
-            id: entry_widget
-            cols: 0
-            height:100
-            
-        BoxLayout:
             id: evaluated_answer
             cols: 0
             height:100
@@ -227,7 +220,30 @@ Builder.load_string("""
             id: equal
             cols: 0
             height:100
+        
+        BoxLayout:
+            cols: 2
             
+            Button:
+                id: steps
+                text: "Clear"   
+                font_size: '20sp'
+                background_color: 1, 0 , 0 , 1
+                height:200
+                on_release:
+                    input.text = ''
+                    evaluated_answer.clear_widgets()
+                    equal.clear_widgets()
+            
+            Button:
+                id: steps
+                text: "Backspace"   
+                font_size: '20sp'
+                background_color: 1, 0 , 1 , 1
+                height:200
+                on_release:
+                    input.text = input.text[:-1]
+                    
         TextInput:
             id: input
             text: input.text
@@ -242,37 +258,15 @@ Builder.load_string("""
             
             Button:
                 id: steps
-                text: "Clear"   
-                font_size: '20sp'
-                background_color: 1, 0 , 0 , 1
-                height:200
-                on_release:
-                    input.text = ''
-                    evaluated_answer.clear_widgets()
-                    entry_widget.clear_widgets()
-                    equal.clear_widgets()
-            
-            Button:
-                id: steps
-                text: "Backspace"   
-                font_size: '20sp'
-                background_color: 1, 0 , 1 , 1
-                height:200
-                on_release:
-                    input.text = input.text[:-1]
-                    
-            Button:
-                id: steps
                 text: "Calculate"   
                 font_size: '20sp'
                 background_color: 0, 1 , 0 , 1
                 height:200
                 on_release:
-                    entry_widget.clear_widgets()
                     evaluated_answer.clear_widgets()
                     equal.clear_widgets()
-                    FourNumberTheory.steps(input.text)
-                
+                    FourNumberTheory.steps(input.text)   
+                    
         BoxLayout:
             cols: 2
             
@@ -503,7 +497,6 @@ class FourNumberTheory(Screen):
     def steps(self,entry):
         
         print("FourNumberTheory = ",entry)
-        self.ids.entry_widget.add_widget(Label(text= entry ,font_size = '20sp', size_hint_y= None, height=100))
         
         while len(entry) > 0:
             try:

@@ -329,14 +329,6 @@ Builder.load_string("""
                 on_release:
                     input.text = input.text + ")!"   
                     
-            Button:
-                text: "."   
-                font_size: '30sp'
-                height:200
-                background_color: 1, 1 , 1 , 1
-                on_release:
-                    input.text = input.text + "."     
-                    
         BoxLayout:
             cols: 2
             
@@ -355,22 +347,14 @@ Builder.load_string("""
                 background_color: 0, 1 , 0 , 1
                 on_release:
                     input.text = input.text + "*"
-            
-            Button:
-                text: "-"   
-                font_size: '30sp'
-                height:200
-                background_color: 1, 0 , 0 , 1
-                on_release:
-                    input.text = input.text + "-"
                     
             Button:
-                text: "+"   
+                text: "."   
                 font_size: '30sp'
                 height:200
-                background_color: 0, 1 , 0 , 1
+                background_color: 0, 1 , 1 , 1
                 on_release:
-                    input.text = input.text + "+"
+                    input.text = input.text + "."     
             
         BoxLayout:
             cols: 2
@@ -379,7 +363,7 @@ Builder.load_string("""
                 text: "1"   
                 font_size: '30sp'
                 height:200
-                background_color: 1, 0 , 1 , 1
+                background_color: 0, 0 , 0 , 1
                 on_release:
                     input.text = input.text + "1"
                     
@@ -387,7 +371,7 @@ Builder.load_string("""
                 text: "2"   
                 font_size: '30sp'
                 height:200
-                background_color: 1, 0 , 1 , 1
+                background_color: 0, 0 , 0 , 1
                 on_release:
                     input.text = input.text + "2"
                     
@@ -395,15 +379,26 @@ Builder.load_string("""
                 text: "3"   
                 font_size: '30sp'
                 height:200
-                background_color: 1, 0 , 1 , 1
+                background_color: 0, 0 , 0 , 1
                 on_release:
                     input.text = input.text + "3"
                     
             Button:
+                text: "+"   
+                font_size: '30sp'
+                height:200
+                background_color: 0, 1 , 0 , 1
+                on_release:
+                    input.text = input.text + "+"
+                    
+        BoxLayout:
+            cols: 2
+            
+            Button:
                 text: "4"   
                 font_size: '30sp'
                 height:200
-                background_color: 1, 0 , 1 , 1
+                background_color: 0, 0 , 0 , 1
                 on_release:
                     input.text = input.text + "4"
                     
@@ -411,26 +406,34 @@ Builder.load_string("""
                 text: "5"   
                 font_size: '30sp'
                 height:200
-                background_color: 1, 0 , 1 , 1
+                background_color: 0, 0 , 0 , 1
                 on_release:
                     input.text = input.text + "5"
-                    
-        BoxLayout:
-            cols: 2
             
             Button:
                 text: "6"   
                 font_size: '30sp'
                 height:200
-                background_color: 1, 0 , 1 , 1
+                background_color: 0, 0 , 0 , 1
                 on_release:
                     input.text = input.text + "6"
                     
             Button:
+                text: "-"   
+                font_size: '30sp'
+                height:200
+                background_color: 1, 0 , 0 , 1
+                on_release:
+                    input.text = input.text + "-"
+            
+        BoxLayout:
+            cols: 2
+            
+            Button:
                 text: "7"   
                 font_size: '30sp'
                 height:200
-                background_color: 1, 0 , 1 , 1
+                background_color: 0, 0 , 0 , 1
                 on_release:
                     input.text = input.text + "7"
                     
@@ -438,7 +441,7 @@ Builder.load_string("""
                 text: "8"   
                 font_size: '30sp'
                 height:200
-                background_color: 1, 0 , 1 , 1
+                background_color: 0, 0 , 0 , 1
                 on_release:
                     input.text = input.text + "8"
                     
@@ -446,7 +449,7 @@ Builder.load_string("""
                 text: "9"   
                 font_size: '30sp'
                 height:200
-                background_color: 1, 0 , 1 , 1
+                background_color: 0, 0 , 0 , 1
                 on_release:
                     input.text = input.text + "9"
                         
@@ -454,7 +457,7 @@ Builder.load_string("""
                 text: "0"   
                 font_size: '30sp'
                 height:200
-                background_color: 1, 0 , 1 , 1
+                background_color: 0, 0 , 0 , 1
                 on_release:
                     input.text = input.text + "0"
 """)

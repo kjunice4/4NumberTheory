@@ -309,7 +309,7 @@ Builder.load_string("""
                 text: "^("   
                 font_size: '30sp'
                 height:200
-                background_color: 1, 1 , 1 , 1
+                background_color: 0, 0 , 0 , 1
                 on_release:
                     input.text = input.text + "^("
                     
@@ -317,7 +317,7 @@ Builder.load_string("""
                 text: "√("   
                 font_size: '30sp'
                 height:200
-                background_color: 1, 1 , 1 , 1
+                background_color: 0, 0 , 0 , 1
                 on_release:
                     input.text = input.text + "√("
                     
@@ -325,7 +325,7 @@ Builder.load_string("""
                 text: ")!"   
                 font_size: '30sp'
                 height:200
-                background_color: 1, 1 , 1 , 1
+                background_color: 0, 0 , 0 , 1
                 on_release:
                     input.text = input.text + ")!"   
                     
@@ -601,6 +601,22 @@ class FourNumberTheory(Screen):
                     print('ALL NUMBERS USED ONLY ONCE!!!!!!!!!!!!!!!!!!!!!!')
                     self.ids.evaluated_answer.add_widget(Label(text= entry ,font_size = '20sp', size_hint_y= None, height=100))
                     
+                elif str(entry).count(str(int(self.number1))) >= 1 or str(entry).count(str(float(self.number1))) >= 1:
+                    print("number1 found for either int or float")
+                    self.ids.evaluated_answer.add_widget(Label(text= entry ,font_size = '20sp', size_hint_y= None, height=100))
+                
+                elif str(entry).count(str(int(self.number2))) >= 1 or str(entry).count(str(float(self.number2))) >= 1:
+                    print("number2 found for either int or float")
+                    self.ids.evaluated_answer.add_widget(Label(text= entry ,font_size = '20sp', size_hint_y= None, height=100))
+                
+                elif str(entry).count(str(int(self.number3))) >= 1 or str(entry).count(str(float(self.number3))) >= 1:
+                    print("number3 found for either int or float")
+                    self.ids.evaluated_answer.add_widget(Label(text= entry ,font_size = '20sp', size_hint_y= None, height=100))
+                
+                elif str(entry).count(str(int(self.number4))) >= 1 or str(entry).count(str(float(self.number4))) >= 1:
+                    print("number4 found for either int or float")
+                    self.ids.evaluated_answer.add_widget(Label(text= entry ,font_size = '20sp', size_hint_y= None, height=100))
+                
                 else:
                     print('ALL NUMBERS NOT USED')
                     self.ids.equal.add_widget(Label(text= "Not all numbers used only once!" ,font_size = '20sp', size_hint_y= None, height=100))

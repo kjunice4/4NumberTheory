@@ -80,7 +80,7 @@ Builder.load_string("""
             text: "Play 4 Number Theory"   
             font_size: '20sp'
             background_color: 0, 0 , 1 , 1
-            height:200
+            height:300
             padding: 10, 10
             on_release:
                 app.root.current = "FourNumberTheory"
@@ -89,7 +89,7 @@ Builder.load_string("""
         Button:
             font_size: '20sp'
             background_color: 1, 0, 1, 1
-            height:200
+            height:300
             padding: 10, 10
             text: "How to Play Four Number Theory"
             on_release:
@@ -98,7 +98,7 @@ Builder.load_string("""
         
         Button:
             font_size: '20sp'
-            height:200
+            height:300
             padding: 10, 10
             text: "Visit KSquared-Mathematics"
             on_release:
@@ -174,6 +174,7 @@ Builder.load_string("""
                 background_color: 1, 0 , 1 , 1
                 on_release:
                     evaluated_answer.clear_widgets()
+                    entry_widget.clear_widgets()
                     FourNumberTheory.newnumbers()
                     equal.clear_widgets()
                     input.text = ""
@@ -201,6 +202,11 @@ Builder.load_string("""
                 cols: 0
         
         BoxLayout:
+            id: entry_widget
+            cols: 0
+            height:100
+            
+        BoxLayout:
             id: evaluated_answer
             cols: 0
             height:100
@@ -210,7 +216,6 @@ Builder.load_string("""
             cols: 0
             height:100
             
-        
         TextInput:
             id: input
             text: input.text
@@ -231,6 +236,9 @@ Builder.load_string("""
                 height:200
                 on_release:
                     input.text = ''
+                    evaluated_answer.clear_widgets()
+                    entry_widget.clear_widgets()
+                    equal.clear_widgets()
             
             Button:
                 id: steps
@@ -318,7 +326,7 @@ Builder.load_string("""
                 text: "."   
                 font_size: '30sp'
                 height:200
-                background_color: 0, 0 , 0 , 1
+                background_color: 1, 1 , 1 , 1
                 on_release:
                     input.text = input.text + "."     
                     
@@ -478,7 +486,7 @@ class FourNumberTheory(Screen):
     def steps(self,entry):
         
         print("FourNumberTheory = ",entry)
-        self.ids.evaluated_answer.add_widget(Label(text= entry ,font_size = '20sp', size_hint_y= None, height=100))
+        self.ids.entry_widget.add_widget(Label(text= entry ,font_size = '20sp', size_hint_y= None, height=100))
         
         while len(entry) > 0:
             try:

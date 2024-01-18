@@ -24,8 +24,7 @@ Builder.load_string("""
         Button:
             background_normal: "4numbertheory_logo.png"
             size_hint_y: None
-            height:800
-            width:800
+            height:1200
             on_release:
                 app.root.current = "Menu"
                 root.manager.transition.direction = "left" 
@@ -34,7 +33,7 @@ Builder.load_string("""
             font_size: '20sp'
             background_color: 0, 0 , 0 , 1
             size_hint_y: None
-            height:200
+            height:400
             text: "4 Number Theory Game"
             on_release:
                 app.root.current = "Menu"
@@ -44,7 +43,7 @@ Builder.load_string("""
             font_size: '20sp'
             background_color: 0, 0 , 0 , 1
             size_hint_y: None
-            height:200
+            height:400
             text: "A Junice Industries Product"
             on_release:
                 app.root.current = "Menu"
@@ -54,7 +53,7 @@ Builder.load_string("""
             font_size: '20sp'
             background_color: 0, 0 , 0 , 1
             size_hint_y: None
-            height:200
+            height:400
             text: "Tap anywhere to Continue"
             on_release:
                 app.root.current = "Menu"
@@ -170,14 +169,13 @@ Builder.load_string("""
             
             Button:
                 text: "New Numbers & Answer"   
-                font_size: '10sp'
+                font_size: '15sp'
                 height:200
                 background_color: 1, 0 , 1 , 1
                 on_release:
                     evaluated_answer.clear_widgets()
                     FourNumberTheory.newnumbers()
                     equal.clear_widgets()
-                    FourNumberTheory.newanswer()
                     input.text = ""
                     
         BoxLayout:

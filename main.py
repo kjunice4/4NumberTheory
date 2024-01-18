@@ -210,12 +210,19 @@ Builder.load_string("""
             BoxLayout:
                 id: answer
                 cols: 0
-        
         BoxLayout:
-            id: evaluated_answer
-            cols: 0
-            height:100
+            cols: 1
             
+            BoxLayout:
+                id: evaluated_answer
+                cols: 0
+                height:100
+                
+            BoxLayout:
+                id: answer_display
+                cols: 0
+                height:100
+                
         BoxLayout:
             id: equal
             cols: 0
@@ -624,7 +631,7 @@ class FourNumberTheory(Screen):
                 
                 #Does evaled answer equal random answer?
                 if float(evaled_answer) == float(self.answer):
-                    self.ids.equal.add_widget(Label(text= str(evaled_answer) ,font_size = '20sp', size_hint_y= None, height=100))
+                    self.ids.answer_display.add_widget(Label(text= str(evaled_answer) ,font_size = '20sp', size_hint_y= None, height=100))
                     self.ids.equal.add_widget(Label(text= "Correct!" ,font_size = '20sp', size_hint_y= None, height=100))
                     break
                 else:

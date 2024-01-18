@@ -155,27 +155,39 @@ Builder.load_string("""
     GridLayout:
         cols: 1
         
+        Button:
+            text: "Menu"   
+            font_size: '20sp'
+            height:200
+            background_color: 0, 0 , 1 , 1
+            on_release:
+                app.root.current = "Menu"
+                root.manager.transition.direction = "right" 
+        
         BoxLayout:
             cols: 2
     
-            Button:
-                text: "Menu"   
-                font_size: '20sp'
-                height:200
-                background_color: 0, 0 , 1 , 1
-                on_release:
-                    app.root.current = "Menu"
-                    root.manager.transition.direction = "right" 
-            
             Button:
                 text: "New Numbers & Answer"   
                 font_size: '15sp'
                 height:200
                 background_color: 1, 0 , 1 , 1
                 on_release:
+                    FourNumberTheory.newnumbers()
                     evaluated_answer.clear_widgets()
                     entry_widget.clear_widgets()
-                    FourNumberTheory.newnumbers()
+                    equal.clear_widgets()
+                    input.text = ""
+                    
+            Button:
+                text: "Next Answer"   
+                font_size: '20sp'
+                height:200
+                background_color: 0, 1 , 1 , 1
+                on_release:
+                    FourNumberTheory.nextAnswer()
+                    evaluated_answer.clear_widgets()
+                    entry_widget.clear_widgets()
                     equal.clear_widgets()
                     input.text = ""
                     
@@ -256,6 +268,7 @@ Builder.load_string("""
                 background_color: 0, 1 , 0 , 1
                 height:200
                 on_release:
+                    entry_widget.clear_widgets()
                     evaluated_answer.clear_widgets()
                     equal.clear_widgets()
                     FourNumberTheory.steps(input.text)
@@ -455,8 +468,12 @@ Builder.load_string("""
 class FourNumberTheory(Screen):
     sm = ScreenManager()
     
+    def nextAnswer(self):
+        self.ids.answer.clear_widgets()
+        self.answer = str(random.randrange(0, 100))
+        self.ids.answer.add_widget(Label(text= self.answer ,font_size = '20sp', size_hint_y= None, height=100))
+    
     def newnumbers(self):
-        
         self.ids.answer.clear_widgets()
         self.ids.four_numbers.clear_widgets()
         
@@ -467,9 +484,9 @@ class FourNumberTheory(Screen):
         self.number2 = str(random.randrange(0, 9))
         self.number3 = str(random.randrange(0, 9))
         self.number4 = str(random.randrange(0, 9))
-        print("Numbers: ",self.number1+" "+self.number2+" "+self.number3+" "+self.number4)
+        print("Numbers: ",self.number1 + " " + self.number2 + " " + self.number3 + " " +self.number4)
         self.ids.four_numbers.add_widget(Label(text= self.number1 + " , " + self.number2 + " , " + self.number3 + " , " + self.number4 ,font_size = '20sp', size_hint_y= None, height=100))
-    
+        
     def __init__(self, **kwargs):
         super(FourNumberTheory, self).__init__(**kwargs)
         
@@ -480,7 +497,7 @@ class FourNumberTheory(Screen):
         self.number2 = str(random.randrange(0, 9))
         self.number3 = str(random.randrange(0, 9))
         self.number4 = str(random.randrange(0, 9))
-        print("Numbers: ",self.number1+" "+self.number2+" "+self.number3+" "+self.number4)
+        print("Numbers: ",self.number1 + " " + self.number2 + " " + self.number3 + " " +self.number4)
         self.ids.four_numbers.add_widget(Label(text= self.number1 + " , " + self.number2 + " , " + self.number3 + " , " + self.number4 ,font_size = '20sp', size_hint_y= None, height=100))
     
     def steps(self,entry):
@@ -586,7 +603,6 @@ class FourNumberTheory(Screen):
                 #was each number used atleast once?
                 if str(entry).count(str(int(self.number1))) >= 1 and str(entry).count(str(int(self.number2))) >= 1 and str(entry).count(str(int(self.number3))) >= 1 and str(entry).count(str(int(self.number4))) >= 1:
                     print('ALL NUMBERS USED ONLY ONCE!!!!!!!!!!!!!!!!!!!!!!')
-                    
                     self.ids.evaluated_answer.add_widget(Label(text= entry ,font_size = '20sp', size_hint_y= None, height=100))
                     
                 else:
@@ -596,6 +612,7 @@ class FourNumberTheory(Screen):
                 
                 #Does evaled answer equal random answer?
                 if float(evaled_answer) == float(self.answer):
+                    self.ids.equal.add_widget(Label(text= str(evaled_answer) ,font_size = '20sp', size_hint_y= None, height=100))
                     self.ids.equal.add_widget(Label(text= "Correct!" ,font_size = '20sp', size_hint_y= None, height=100))
                     break
                 else:

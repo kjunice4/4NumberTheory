@@ -179,7 +179,7 @@ Builder.load_string("""
                     input.text = ""
                     
             Button:
-                text: "Next Answer"   
+                text: "New Answer"   
                 font_size: '20sp'
                 height:200
                 background_color: 0, 1 , 1 , 1
@@ -333,29 +333,29 @@ Builder.load_string("""
             cols: 2
             
             Button:
-                text: "/"   
+                text: "."   
                 font_size: '30sp'
                 height:200
-                background_color: 1, 0 , 0 , 1
+                background_color: 1, 1 , 1 , 1
                 on_release:
-                    input.text = input.text + "/"
-                    
+                    input.text = input.text + "."    
+            
             Button:
                 text: "*"   
                 font_size: '30sp'
                 height:200
-                background_color: 0, 1 , 0 , 1
+                background_color: 0, 0 , 0 , 1
                 on_release:
                     input.text = input.text + "*"
                     
-            Button:
-                text: "."   
-                font_size: '30sp'
-                height:200
-                background_color: 0, 1 , 1 , 1
-                on_release:
-                    input.text = input.text + "."     
-            
+             Button:
+                 text: "/"   
+                 font_size: '30sp'
+                 height:200
+                 background_color: 0, 0 , 0 , 1
+                 on_release:
+                     input.text = input.text + "/"
+                    
         BoxLayout:
             cols: 2
             

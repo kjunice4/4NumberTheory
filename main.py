@@ -24,7 +24,8 @@ Builder.load_string("""
         Button:
             background_normal: "4numbertheory_logo.png"
             size_hint_y: None
-            height:200
+            height:800
+            width:800
             on_release:
                 app.root.current = "Menu"
                 root.manager.transition.direction = "left" 
@@ -114,8 +115,8 @@ Builder.load_string("""
         Image:
             source: 'KSquared_QR.png'
             size_hint_y: None
-            height:200
-            width:200
+            height:800
+            width:800
 """)
 
 #Updates
@@ -168,24 +169,13 @@ Builder.load_string("""
                     root.manager.transition.direction = "right" 
             
             Button:
-                text: "New 4 Numbers & Answer"   
-                font_size: '15sp'
+                text: "New Numbers & Answer"   
+                font_size: '10sp'
                 height:200
                 background_color: 1, 0 , 1 , 1
                 on_release:
                     evaluated_answer.clear_widgets()
                     FourNumberTheory.newnumbers()
-                    equal.clear_widgets()
-                    input.text = ""
-                    
-            Button:
-                text: "New Answer"   
-                font_size: '15sp'
-                height:200
-                background_color: 1, 2 , 1 , 1
-                on_release:
-                    answer.clear_widgets()
-                    evaluated_answer.clear_widgets()
                     equal.clear_widgets()
                     FourNumberTheory.newanswer()
                     input.text = ""
@@ -474,11 +464,6 @@ class FourNumberTheory(Screen):
         print("Numbers: ",self.number1+" "+self.number2+" "+self.number3+" "+self.number4)
         self.ids.four_numbers.add_widget(Label(text= self.number1 + " , " + self.number2 + " , " + self.number3 + " , " + self.number4 ,font_size = '20sp', size_hint_y= None, height=100))
     
-    def newanswer(self):
-        self.ids.answer.clear_widgets()
-        self.answer = str(random.randrange(0, 100))
-        self.ids.answer.add_widget(Label(text= self.answer ,font_size = '20sp', size_hint_y= None, height=100))
-
     def __init__(self, **kwargs):
         super(FourNumberTheory, self).__init__(**kwargs)
         

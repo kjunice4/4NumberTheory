@@ -348,13 +348,13 @@ Builder.load_string("""
                 on_release:
                     input.text = input.text + "*"
                     
-             Button:
-                 text: "/"   
-                 font_size: '30sp'
-                 height:200
-                 background_color: 0, 0 , 0 , 1
-                 on_release:
-                     input.text = input.text + "/"
+            Button:
+                text: "/"   
+                font_size: '30sp'
+                height:200
+                background_color: 0, 0 , 0 , 1
+                on_release:
+                    input.text = input.text + "/"
                     
         BoxLayout:
             cols: 2
